@@ -12,8 +12,8 @@ searchBtn.addEventListener('click' ,() =>{
     h2Element.style.display = "block"
 });
  function newUpdatedContact(){
- 
-  contacts.forEach(contact => {
+  contactContainer.innerHTML = "";
+  contacts.forEach((contact,index) => {
     const contactElement = document.createElement("div");
     contactElement.classList.add("contact-card");
     contactElement.innerHTML = `
@@ -31,7 +31,7 @@ searchBtn.addEventListener('click' ,() =>{
         deleteButton.style.cursor = "pointer";
 
       deleteButton.addEventListener("click" , () =>{
-        contacts.splice(0 , 1);
+        contacts.splice(index , 1);
         newUpdatedContact();
       }
     )
