@@ -1,0 +1,17 @@
+.menu-container {
+    display: flex; /* Горизонтальное расположение */
+    flex-wrap: wrap; /* Если не влезает, переносится на новую строку */
+    justify-content: flex-start; /* Выравнивание по левому краю */
+    gap: 20px; /* Расстояние между элементами */
+    padding: 20px;
+}
+
+.menu-item {
+    background: #d7b899;
+    border: 2px solid #6f4e37;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 200px; /* Фиксированная ширина карточек */
+}
