@@ -1,0 +1,4 @@
+.shift-left { position: absolute; left: 0; }
+.shift-top { position: absolute; top: 0; }
+.shift-right { position: absolute; right: 0; }
+.shift-bottom { position: absolute; bottom: 0; }
