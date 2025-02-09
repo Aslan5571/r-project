@@ -3,24 +3,26 @@ const contactContainer = document.querySelector(".contact-container");
 const contactName = document.getElementById("contact-name");
 const contactPhone = document.getElementById("contact-phone");
 const contactEmail = document.getElementById("contact-email");
-const deleteBtn = document.getElementsByClassName("delete")
+const deleteBtn = document.getElementsByClassName("delete");
+const h2Element = document.getElementById("h2Element");
 const contacts = [];
 
 searchBtn.addEventListener('click' ,() =>{
-    contactForm.style.display = "block"
+    contactForm.style.display = "block";
+    h2Element.style.display = "block"
 });
  function newUpdatedContact(){
-    contactContainer.innerHTML = "<h2>Contacts</h2>";
-     contacts.forEach(contact =>{
-        const contactElement = document.createElement("div");
-        contactElement.classList.add("contact-card");
-        contactElement.innerHTML = `
-          <h3>${contact.name}</h3>
-            <p>📞 ${contact.phone}</p>
-            <p>✉️ ${contact.email}</p>
-        
-          
-        `;
+ 
+  contacts.forEach(contact => {
+    const contactElement = document.createElement("div");
+    contactElement.classList.add("contact-card");
+    contactElement.innerHTML = `
+      <h3>${contact.name}</h3>
+      <div class="contact-info">
+        <p>📞 ${contact.phone}</p>
+        <p>✉️ ${contact.email}</p>
+      </div>
+    `;
         const deleteButton = document.createElement("button");
         deleteButton.textContent = "Delete";
         deleteButton.style.color = "white";
