@@ -133,15 +133,21 @@ orderButton.addEventListener("click", () => {
 
 confirmButton.addEventListener("click", () => {
     if (nameInput.value && contactInput.value && emailInput.value) {
-        alert(`Заказ оформлен!\nИмя: ${nameInput.value}\nТелефон: ${contactInput.value}\nEmail: ${emailInput.value}`);
-        orderList.innerHTML = ""; 
-        orderButton.style.display = "none";
-        orderForm.style.display = "none"; 
-        nameInput.value = ""; 
-        contactInput.value = "";
-        emailInput.value = "";
+        Toastify({
+            text: `Заказ оформлен!\nИмя: ${nameInput.value}\nТелефон: ${contactInput.value}\nEmail: ${emailInput.value}`,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "rgb(215, 184, 153)",
+        }).showToast();
     } else {
-        alert("Пожалуйста, заполните все поля!");
+        Toastify({
+            text: "Пожалуйста, заполните все поля!",
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "red"
+        }).showToast();
     }
 });
 
