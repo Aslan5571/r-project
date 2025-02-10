@@ -38,8 +38,8 @@ searchBtn.addEventListener('click' ,() =>{
         contactElement.appendChild(deleteButton);
         contactContainer.appendChild(contactElement)
      })
-
- }
+ 
+    }
 
 
 
