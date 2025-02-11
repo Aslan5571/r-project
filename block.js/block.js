@@ -7,13 +7,13 @@ const deleteBtn = document.getElementsByClassName("delete");
 const h2Element = document.getElementById("h2Element");
 const contacts = [];
 
-searchBtn.addEventListener('click' ,() =>{
-    contactForm.style.display = "block";
-    h2Element.style.display = "block"
+searchBtn.addEventListener("click", () => {
+  contactForm.style.display = "block";
+  h2Element.style.display = "block";
 });
- function newUpdatedContact(){
+function newUpdatedContact() {
   contactContainer.innerHTML = "";
-  contacts.forEach((contact,index) => {
+  contacts.forEach((contact, index) => {
     const contactElement = document.createElement("div");
     contactElement.classList.add("contact-card");
     contactElement.innerHTML = `
@@ -23,40 +23,33 @@ searchBtn.addEventListener('click' ,() =>{
         <p>✉️ ${contact.email}</p>
       </div>
     `;
-        const deleteButton = document.createElement("button");
-        deleteButton.textContent = "Delete";
-        deleteButton.style.color = "white";
-        deleteButton.style.border = "none";
-        deleteButton.style.padding = "5px 10px";
-        deleteButton.style.cursor = "pointer";
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "Delete";
+    deleteButton.style.color = "white";
+    deleteButton.style.border = "none";
+    deleteButton.style.padding = "5px 10px";
+    deleteButton.style.cursor = "pointer";
 
-      deleteButton.addEventListener("click" , () =>{
-        contacts.splice(index , 1);
-        newUpdatedContact();
-      }
-    )
-        contactElement.appendChild(deleteButton);
-        contactContainer.appendChild(contactElement)
-     })
- 
-    }
+    deleteButton.addEventListener("click", () => {
+      contacts.splice(index, 1);
+      newUpdatedContact();
+    });
+    contactElement.appendChild(deleteButton);
+    contactContainer.appendChild(contactElement);
+  });
+}
 
-
-
-
-contactForm.addEventListener('submit' , (e) =>{
-    e.preventDefault();
+contactForm.addEventListener("submit", (e) => {
+  e.preventDefault();
   const newContact = {
-   name: contactName.value ,
-   phone: contactPhone.value ,
-   email: contactEmail.value 
+    name: contactName.value,
+    phone: contactPhone.value,
+    email: contactEmail.value,
   };
   contacts.push(newContact);
   newUpdatedContact();
 
   contactName.value = "";
-    contactPhone.value = "";
-    contactEmail.value = "";
-
-})
-
+  contactPhone.value = "";
+  contactEmail.value = "";
+});
